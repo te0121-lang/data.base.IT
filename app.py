@@ -3,23 +3,42 @@ from io import BytesIO
 import requests
 import streamlit as st
 
+
+
+# --- CONFIGURARE FIȘIER ADS.TXT PENTRU GOOGLE ADSENSE ---
+import os
+
+# Creăm un fișier fizic ads.txt în folderul static din serverul Streamlit
+def configureaza_ads_txt():
+    import streamlit as st_mod
+    import pathlib
+    
+    # Calea către folderul static intern al Streamlit pe serverul Render
+    cale_static = pathlib.Path(st_mod.__file__).parent / "static"
+    cale_ads_txt = cale_static / "ads.txt"
+    
+    # Textul exact pe care ți l-a dat Google în imagine
+    text_ads_txt = "google.com, pub-5645412202166539, DIRECT, f08c47fec0942fa0"
+    
+    # Scriem fișierul pe server dacă nu există deja sau dacă are alt conținut
+    if not cale_ads_txt.exists() or cale_ads_txt.read_text(encoding="utf-8") != text_ads_txt:
+        cale_ads_txt.write_text(text_ads_txt, encoding="utf-8")
+
+# Rulăm configurarea automat la pornirea aplicației
+configureaza_ads_txt()
+# --------------------------------------------------------
+
 # Configurare Pagină Streamlit
 st.set_page_config(
     page_title="Tech Catalog 2026 - Bază de Date Masivă",
     page_icon="📱",
     layout="wide",
 )
-import streamlit.components.v1 as components
 
-# Forțăm Streamlit să trimită codul tău Google în pagina principală
-components.html(
-    """
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5645412202166539"
-     crossorigin="anonymous"></script>
-    """,
-    height=0,
-    width=0
-)
+
+
+
+
 def verifica_bot_si_cookies():
     if "human_verified" not in st.session_state:
         st.session_state.human_verified = False
