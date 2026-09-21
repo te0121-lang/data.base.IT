@@ -9,8 +9,17 @@ st.set_page_config(
     page_icon="📱",
     layout="wide",
 )
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5645412202166539"
+import streamlit.components.v1 as components
+
+# Forțăm Streamlit să trimită codul tău Google în pagina principală
+components.html(
+    """
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5645412202166539"
      crossorigin="anonymous"></script>
+    """,
+    height=0,
+    width=0
+)
 def verifica_bot_si_cookies():
     if "human_verified" not in st.session_state:
         st.session_state.human_verified = False
