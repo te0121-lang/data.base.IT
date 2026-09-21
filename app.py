@@ -11,25 +11,7 @@ st.set_page_config(
 
 
 
-        layout="wide",
-    )
-
-    # --- TRIMITERE SIGURĂ ADS.TXT ÎN PAGINĂ ---
-    import pathlib
-
-    def incarca_ads_txt_in_system():
-        import streamlit as st_mod
-        cale_ads_local = pathlib.Path("ads.txt")
-        cale_static_system = pathlib.Path(st_mod.__file__).parent / "static" / "ads.txt"
-        
-        if cale_ads_local.exists() and cale_static_system.parent.exists():
-            text_ads = cale_ads_local.read_text(encoding="utf-8")
-            cale_static_system.write_text(text_ads, encoding="utf-8")
-
-    incarca_ads_txt_in_system()
-    # -------------------------------------------
-
-    def verifica_bot_si_cookies():
+ <meta name="google-adsense-account" content="ca-pub-5645412202166539">
 
 
 
