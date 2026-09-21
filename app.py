@@ -3,35 +3,6 @@ from io import BytesIO
 import requests
 import streamlit as st
 
-# # Configurare Pagină Streamlit
-st.set_page_config(
-    page_title="Tech Catalog 2026 - Bază de Date Masivă",
-    page_icon="🏢",
-    layout="wide",
-)
-
-# --- INJECTARE METAETICHETĂ GOOGLE ADSENSE ---
-import pathlib
-
-def injecteaza_meta_tag():
-    import streamlit as st_mod
-    cale_html = pathlib.Path(st_mod.__file__).parent / "static" / "index.html"
-    
-    if cale_html.exists():
-        text_html = cale_html.read_text(encoding="utf-8")
-        meta_tag_google = '<meta name="google-adsense-account" content="ca-pub-5645412202166539">'
-        
-        if "google-adsense-account" not in text_html:
-            text_html_nou = text_html.replace("<head>", f"<head>{meta_tag_google}")
-            cale_html.write_text(text_html_nou, encoding="utf-8")
-
-injecteaza_meta_tag()
-# ---------------------------------------------
-
-# # ========================================================
-# # 0. VERIFICARE reCAPTCHA & COOKIES
-# # ========================================================
-
 
 st.set_page_config(
     page_title="Tech Catalog 2026 - Bază de Date Masivă",
@@ -40,10 +11,10 @@ st.set_page_config(
 )
 
 
-
-
-
-
+# --- BUTON CA SĂ FACI BANI CU MONETAG ---
+st.link_button("🔓 Accesează Baza de Date Premium / Rapoarte Complete", "AICI_LIPIȘTI_LINKUL_PE_CARE_L_AI_COPIAT")
+st.markdown("---")
+# ----------------------------------------
 
 
 
