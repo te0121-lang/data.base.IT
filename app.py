@@ -1,38 +1,49 @@
-import random
-from io import BytesIO
-import requests
-import streamlit as st
+from flask import Flask, render_template_string
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    # Aici este structura HTML curată a site-ului tău
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="ro">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech Catalog 2026</title>
+        
+        <!-- CODUL TĂU GOOGLE ADSENSE (AICI ÎL VA GĂSI ROBOTUL INSTANT) -->
+        <meta name="google-adsense-account" content="ca-pub-5645412202166539">
+        
+        <style>
+            body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+            h1 { color: #333; }
+            p { color: #666; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🏢 Tech Catalog 2026</h1>
+            <p>Baza de date este în curs de actualizare și optimizare pentru publicitate.</p>
+            <p>Sistemul de monetizare Google AdSense se verifică în acest moment...</p>
+        </div>
+    </body>
+    </html>
+    """
+    return render_template_string(html_content)
+
+if __name__ == '__main__':
+    # Render are nevoie ca portul să fie citit din variabilele de mediu
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
 
 
-st.set_page_config(
-    page_title="Tech Catalog 2026 - Bază de Date Masivă",
-    page_icon="📱",
-    layout="wide",
-)
-
-# --- MONETIZARE AUTOMATĂ LA PRIMUL CLICK ---
-import streamlit.components.v1 as components
-
-# Acest script se activează invizibil când omul dă primul click oriunde în aplicație
-popunder_script = """
-<script>
-    window.parent.document.addEventListener('click', function() {
-        if (!window.parent.hasRunPop) {
-            // Deschiderea linkului tău de la Monetag într-o filă separată
-            window.open("https://omg10.com/4/11855253", "_blank");
-            window.parent.hasRunPop = true;
-        }
-    }, { once: true });
-</script>
-"""
-components.html(popunder_script, height=0, width=0)
-# --------------------------------------------
 
 
-# --- BUTON CA SĂ FACI BANI CU MONETAG ---
-st.link_button("🔓 Accesează Baza de Date Premium / Rapoarte Complete", "https://omg10.com/4/11855253")
-st.markdown("---")
-# ----------------------------------------
+
 
 
 
