@@ -9,31 +9,8 @@ st.set_page_config(
     page_icon="📱",
     layout="wide",
 )
-# --- INJECTARE COD GOOGLE ADSENSE ---
-import streamlit.components.v1 as components
-
-adsense_script = """
-<script>
-    // Verificăm dacă scriptul a fost deja adăugat pentru a nu-l duplica
-    if (!window.parent.document.getElementById('google-adsense-script')) {
-        var script = window.parent.document.createElement('script');
-        script.id = 'google-adsense-script';
-        script.async = true;
-        script.src = "https://googlesyndication.com";
-        script.crossOrigin = "anonymous";
-        // Forțăm adăugarea scriptului în <head>-ul principal al paginii
-        window.parent.document.head.appendChild(script);
-    }
-</script>
-"""
-# Rulăm scriptul invizibil în fundal
-components.html(adsense_script, height=0, width=0)
-# -------------------------------------
-
-
-# ==========================================
-# 0. VERIFICARE reCAPTCHA & COOKIES
-# ==========================================
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5645412202166539"
+     crossorigin="anonymous"></script>
 def verifica_bot_si_cookies():
     if "human_verified" not in st.session_state:
         st.session_state.human_verified = False
