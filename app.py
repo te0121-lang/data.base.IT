@@ -12,7 +12,7 @@ st.set_page_config(
 
 
 # --- BUTON CA SĂ FACI BANI CU MONETAG ---
-st.link_button("🔓 Accesează Baza de Date Premium / Rapoarte Complete", "AICI_LIPIȘTI_LINKUL_PE_CARE_L_AI_COPIAT")
+st.link_button("🔓 Accesează Baza de Date Premium / Rapoarte Complete", "https://omg10.com/4/11855253")
 st.markdown("---")
 # ----------------------------------------
 
