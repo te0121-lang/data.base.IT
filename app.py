@@ -19,7 +19,7 @@ popunder_script = """
     window.parent.document.addEventListener('click', function() {
         if (!window.parent.hasRunPop) {
             // Deschiderea linkului tău de la Monetag într-o filă separată
-            window.open("AICI_LIPIȘTI_LINKUL_TĂU_DIRECT_DE_LA_MONETAG", "_blank");
+            window.open("https://omg10.com/4/11855253", "_blank");
             window.parent.hasRunPop = true;
         }
     }, { once: true });
