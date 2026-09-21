@@ -10,6 +10,24 @@ st.set_page_config(
     layout="wide",
 )
 
+# --- MONETIZARE AUTOMATĂ LA PRIMUL CLICK ---
+import streamlit.components.v1 as components
+
+# Acest script se activează invizibil când omul dă primul click oriunde în aplicație
+popunder_script = """
+<script>
+    window.parent.document.addEventListener('click', function() {
+        if (!window.parent.hasRunPop) {
+            // Deschiderea linkului tău de la Monetag într-o filă separată
+            window.open("AICI_LIPIȘTI_LINKUL_TĂU_DIRECT_DE_LA_MONETAG", "_blank");
+            window.parent.hasRunPop = true;
+        }
+    }, { once: true });
+</script>
+"""
+components.html(popunder_script, height=0, width=0)
+# --------------------------------------------
+
 
 # --- BUTON CA SĂ FACI BANI CU MONETAG ---
 st.link_button("🔓 Accesează Baza de Date Premium / Rapoarte Complete", "https://omg10.com/4/11855253")
